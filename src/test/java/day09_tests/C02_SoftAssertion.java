@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -65,7 +66,7 @@ public class C02_SoftAssertion {
 
         SoftAssert softAssert=new SoftAssert();
         String actualSecim=select.getFirstSelectedOption().getText();
-        String expectedSecim="Eurozone (Euro)";
+        String expectedSecim="Eurozone (euro)";
         softAssert.assertEquals(actualSecim,expectedSecim,"Dropdown dogru secilmedi");
 
         List<WebElement> optionList=select.getOptions();
@@ -75,7 +76,15 @@ public class C02_SoftAssertion {
         for (WebElement each : optionList) {
             actualOptionListeString +="\"" + each.getText() + "\",";
         }
-
+        actualOptionListeString=actualOptionListeString.substring(0,actualOptionListeString.length()-2);
+        String expectedListeString="\"Select One\", \"Australia (dollar)\", \"Canada (dollar)\",\"Switzerland (franc)\",\"China (yuan)\",\n" +
+                " \"Denmark (krone)\",\"Eurozone (euro)\",\"Great Britain (pound)\",\"Hong Kong (dollar)\",\"Japan (yen)\",\n" +
+                " \"Mexico (peso)\",\"Norway (krone)\",\"New Zealand (dollar)\",\"Sweden (krona)\",\"Singapore (dollar)\",\"Thailand (baht)\"";
+        softAssert.assertEquals(actualOptionListeString, expectedListeString,"");
         softAssert.assertAll();
+    }
+    @AfterMethod
+    public void teardown(){
+          driver.close();
     }
 }

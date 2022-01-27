@@ -1,4 +1,4 @@
-package tests.day08;
+package day08;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
@@ -55,7 +55,7 @@ public class C04_HandleDropdown {
     }
     @AfterMethod
     public void teardown(){
-        //   driver.close();
+         driver.close();
     }
 }
 
