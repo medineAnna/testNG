@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import java.time.Duration;
@@ -65,5 +66,10 @@ public class C01_Allerts {
         String yazdigimizIsim="Yildiz";
         Thread.sleep(3000);
         Assert.assertTrue(actualSonucYazisi.contains(yazdigimizIsim));
+    }
+
+    @AfterClass
+    public void tearDown(){
+        driver.close();
     }
 }
