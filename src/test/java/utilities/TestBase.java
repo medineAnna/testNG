@@ -17,11 +17,11 @@ public class TestBase {
         WebDriverManager.chromedriver().setup();
         driver=new ChromeDriver();
         driver.manage().window().maximize();
-        //river.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
     }
     @AfterClass
     public void tearDown(){
 
-        driver.close();
+       // driver.close();
     }
 }
