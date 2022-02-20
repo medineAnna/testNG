@@ -30,8 +30,8 @@ public class C02_HandleDropDown {
 
         //dropdown'da var olan seceneklerden birini secmek icin
         //1.adim: Dropdown webelementini locate edip bir degiskene atiyoruz
-        driver.get("//https:www.amazon.com/");
-        WebElement dropdownElement=driver.findElement(By.xpath("//select[]@id='searchDropdownBox']"));
+        driver.get("https://www.amazon.com");
+        WebElement dropdownElement=driver.findElement(By.xpath("//select[@id='searchDropdownBox']"));
 
         //2.adim: select class'dan bir obje olusturalim
         //ve parametre olarak locate ettigimiz webelementi yazalim
